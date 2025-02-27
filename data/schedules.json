@@ -1,0 +1,22 @@
+{
+  "garbageCollection": [
+    { "day": "Monday", "time": "08:00" },
+    { "day": "Wednesday", "time": "08:00" },
+    { "day": "Friday", "time": "08:00" }
+  ],
+  "shuttleBus": [
+    { "day": "Weekdays", "departures": ["07:00", "09:00", "12:00", "15:00", "17:00", "19:00"] },
+    { "day": "Weekends", "departures": ["08:00", "10:00", "14:00", "16:00", "18:00"] }
+  ],
+  "maintenance": [
+    { "day": "Tuesday", "time": "14:00-16:00", "area": "Common Areas" },
+    { "day": "Thursday", "time": "10:00-12:00", "area": "Gym Equipment" },
+    { "day": "Saturday", "time": "09:00-11:00", "area": "Swimming Pool" }
+  ],
+  "securityPatrol": [
+    { "shift": "Morning", "time": "06:00-14:00" },
+    { "shift": "Afternoon", "time": "14:00-22:00" },
+    { "shift": "Night", "time": "22:00-06:00" }
+  ]
+}
+

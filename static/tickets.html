@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets - Jabu</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .tickets-grid {
+            display: grid;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .ticket-card {
+            background-color: var(--background);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1rem;
+        }
+
+        .ticket-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .ticket-status {
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+        }
+
+        .status-open { background-color: #fef9c3; color: #854d0e; }
+        .status-ongoing { background-color: #dbeafe; color: #1e40af; }
+        .status-closed { background-color: #dcfce7; color: #166534; }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <nav class="container">
+                <a href="/" class="logo">Jabu</a>
+                <div class="nav-actions">
+                    <button id="themeToggle" class="icon-button">
+                        <i data-lucide="moon"></i>
+                    </button>
+                    <a href="tel:+1234567890" class="icon-button">
+                        <i data-lucide="phone"></i>
+                    </a>
+                    <a href="directory.html" class="icon-button">
+                        <i data-lucide="users"></i>
+                    </a>
+                    <button id="menuToggle" class="icon-button">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="container py-8">
+            <h1 class="text-3xl font-bold mb-6">Ticketing System</h1>
+            <p class="mb-6">Report issues or concerns in your neighborhood.</p>
+            
+            <div class="flex gap-4">
+                <a href="new-ticket.html" class="button button-primary">
+                    Create New Ticket
+                </a>
+                <button onclick="showTickets()" class="button button-outline">
+                    View My Tickets
+                </button>
+            </div>
+
+            <div id="ticketsList" class="tickets-grid" style="display: none;">
+                <!-- Tickets will be inserted here by JavaScript -->
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <img src="https://i.imgur.com/G382iaU.png" alt="Jabu Logo" width="50" height="50">
+                    <nav>
+                        <ul>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Terms</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <p class="copyright">Jabu™ is an experimental SaaS product by PurarupaStudio</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Menu Modal -->
+    <div class="menu-modal" id="menuModal">
+        <div class="menu-content">
+            <div class="menu-header">
+                <h3>Menu</h3>
+                <button class="close-button">×</button>
+            </div>
+            <nav class="menu-nav">
+                <a href="tickets.html" class="menu-item">
+                    <i data-lucide="ticket"></i>
+                    Tickets
+                </a>
+                <a href="billing.html" class="menu-item">
+                    <i data-lucide="credit-card"></i>
+                    Billing
+                </a>
+                <a href="schedules.html" class="menu-item">
+                    <i data-lucide="calendar"></i>
+                    Schedules
+                </a>
+                <a href="security.html" class="menu-item">
+                    <i data-lucide="shield"></i>
+                    Security
+                </a>
+                <a href="admin.html" class="menu-item">
+                    <i data-lucide="user"></i>
+                    Admin
+                </a>
+                <a href="info.html" class="menu-item">
+                    <i data-lucide="info"></i>
+                    Info Board
+                </a>
+                <a href="directory.html" class="menu-item">
+                    <i data-lucide="users"></i>
+                    Directory
+                </a>
+                <a href="login.html" class="menu-item">
+                    <i data-lucide="log-out"></i>
+                    Logout
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/menu.js"></script>
+    <script>
+        // Sample tickets data
+        const tickets = [
+            { id: 1, title: "Broken elevator", status: "Open", date: "2 May 2024" },
+            { id: 2, title: "Noisy neighbor", status: "Ongoing", date: "3 May 2024" },
+            { id: 3, title: "Water leak in bathroom", status: "Closed", date: "4 May 2024" },
+            { id: 4, title: "Parking issue", status: "Open", date: "5 May 2024" },
+            { id: 5, title: "Garbage not collected", status: "Ongoing", date: "6 May 2024" },
+        ];
+
+        function showTickets() {
+            const ticketsList = document.getElementById('ticketsList');
+            ticketsList.style.display = 'grid';
+            ticketsList.innerHTML = tickets.map(ticket => `
+                <div class="ticket-card">
+                    <div class="ticket-header">
+                        <h3 class="font-medium">${ticket.title}</h3>
+                        <span class="ticket-status status-${ticket.status.toLowerCase()}">${ticket.status}</span>
+                    </div>
+                    <p class="text-sm text-muted-foreground">Submitted on ${ticket.date}</p>
+                </div>
+            `).join('');
+        }
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+

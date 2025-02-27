@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Ticket - Jabu</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--foreground);
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background-color: var(--background);
+            color: var(--foreground);
+        }
+
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <nav class="container">
+                <a href="/" class="logo">Jabu</a>
+                <div class="nav-actions">
+                    <button id="themeToggle" class="icon-button">
+                        <i data-lucide="moon"></i>
+                    </button>
+                    <a href="tel:+1234567890" class="icon-button">
+                        <i data-lucide="phone"></i>
+                    </a>
+                    <a href="directory.html" class="icon-button">
+                        <i data-lucide="users"></i>
+                    </a>
+                    <button id="menuToggle" class="icon-button">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="container py-8">
+            <h1 class="text-3xl font-bold mb-6">Submit New Ticket</h1>
+            
+            <form id="ticketForm" class="max-w-lg">
+                <div class="form-group">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" id="title" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category" class="form-label">Category</label>
+                    <select id="category" class="form-select" required>
+                        <option value="">Select a category</option>
+                        <option value="noise">Noise Complaint</option>
+                        <option value="cleanliness">Cleanliness Issue</option>
+                        <option value="maintenance">Maintenance Request</option>
+                        <option value="security">Security Concern</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea id="description" class="form-textarea" required></textarea>
+                </div>
+
+                <button type="submit" class="button button-primary">Submit Ticket</button>
+            </form>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <img src="https://i.imgur.com/G382iaU.png" alt="Jabu Logo" width="50" height="50">
+                    <nav>
+                        <ul>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Terms</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <p class="copyright">Jabu™ is an experimental SaaS product by PurarupaStudio</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Menu Modal -->
+    <div class="menu-modal" id="menuModal">
+        <div class="menu-content">
+            <div class="menu-header">
+                <h3>Menu</h3>
+                <button class="close-button">×</button>
+            </div>
+            <nav class="menu-nav">
+                <a href="tickets.html" class="menu-item">
+                    <i data-lucide="ticket"></i>
+                    Tickets
+                </a>
+                <a href="billing.html" class="menu-item">
+                    <i data-lucide="credit-card"></i>
+                    Billing
+                </a>
+                <a href="schedules.html" class="menu-item">
+                    <i data-lucide="calendar"></i>
+                    Schedules
+                </a>
+                <a href="security.html" class="menu-item">
+                    <i data-lucide="shield"></i>
+                    Security
+                </a>
+                <a href="admin.html" class="menu-item">
+                    <i data-lucide="user"></i>
+                    Admin
+                </a>
+                <a href="info.html" class="menu-item">
+                    <i data-lucide="info"></i>
+                    Info Board
+                </a>
+                <a href="directory.html" class="menu-item">
+                    <i data-lucide="users"></i>
+                    Directory
+                </a>
+                <a href="login.html" class="menu-item">
+                    <i data-lucide="log-out"></i>
+                    Logout
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/menu.js"></script>
+    <script>
+        const form = document.getElementById('ticketForm');
+        
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const title = document.getElementById('title').value;
+            const category = document.getElementById('category').value;
+            const description = document.getElementById('description').value;
+
+            // In a real app, you would send this data to a server
+            // For demo purposes, we'll just show an alert and redirect
+            alert('Ticket submitted successfully!');
+            window.location.href = 'tickets.html';
+        });
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+

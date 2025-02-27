@@ -1,0 +1,26 @@
+{
+  "productName": "Jabu™",
+  "hero": {
+    "title": "Welcome to Jabu™",
+    "description": "Manage your neighborhood or apartment complex efficiently.",
+    "ctaText": "Report an Issue"
+  },
+  "quickActions": [
+    { "title": "Report an Issue", "link": "/tickets" },
+    { "title": "Billing", "link": "/payments" },
+    { "title": "Check Schedules", "link": "/schedules" },
+    { "title": "Security Information", "link": "/security" },
+    { "title": "Admin Portal", "link": "/admin" },
+    { "title": "Information Board", "link": "/info" }
+  ],
+  "footer": {
+    "description": "Jabu™ - an experimental SaaS product by PurarupaStudio",
+    "links": [
+      { "title": "Tickets", "link": "/tickets" },
+      { "title": "Payments", "link": "/payments" },
+      { "title": "Schedules", "link": "/schedules" },
+      { "title": "Security", "link": "/security" }
+    ]
+  }
+}
+

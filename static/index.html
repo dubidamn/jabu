@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jabu - Neighborhood Management</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <nav class="container">
+                <a href="/" class="logo">Jabu</a>
+                <div class="nav-actions">
+                    <button id="themeToggle" class="icon-button">
+                        <i data-lucide="moon"></i>
+                    </button>
+                    <a href="tel:+1234567890" class="icon-button">
+                        <i data-lucide="phone"></i>
+                    </a>
+                    <a href="directory.html" class="icon-button">
+                        <i data-lucide="users"></i>
+                    </a>
+                    <button id="menuToggle" class="icon-button">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="container text-center">
+                    <h1>Welcome to Jabu</h1>
+                    <p>Manage your neighborhood or apartment complex efficiently.</p>
+                    <a href="tickets.html" class="button button-outline">Report an Issue</a>
+                </div>
+            </section>
+
+            <!-- Announcements -->
+            <section class="announcements container">
+                <div class="announcement-carousel">
+                    <div class="announcement-content"></div>
+                    <div class="announcement-indicators"></div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions container">
+                <div class="section-header">
+                    <h2>Quick Actions</h2>
+                    <a href="settings.html" class="icon-button">
+                        <i data-lucide="settings"></i>
+                    </a>
+                </div>
+                <div class="quick-actions-grid">
+                    <!-- Quick action buttons will be inserted here by JavaScript -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <img src="https://i.imgur.com/G382iaU.png" alt="Jabu Logo" width="50" height="50">
+                    <nav>
+                        <ul>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Terms</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <p class="copyright">Jabu™ is an experimental SaaS product by PurarupaStudio</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Menu Modal -->
+    <div class="menu-modal" id="menuModal">
+        <div class="menu-content">
+            <div class="menu-header">
+                <h3>Menu</h3>
+                <button class="close-button">×</button>
+            </div>
+            <nav class="menu-nav">
+                <a href="tickets.html" class="menu-item">
+                    <i data-lucide="ticket"></i>
+                    Tickets
+                </a>
+                <a href="billing.html" class="menu-item">
+                    <i data-lucide="credit-card"></i>
+                    Billing
+                </a>
+                <a href="schedules.html" class="menu-item">
+                    <i data-lucide="calendar"></i>
+                    Schedules
+                </a>
+                <a href="security.html" class="menu-item">
+                    <i data-lucide="shield"></i>
+                    Security
+                </a>
+                <a href="admin.html" class="menu-item">
+                    <i data-lucide="user"></i>
+                    Admin
+                </a>
+                <a href="info.html" class="menu-item">
+                    <i data-lucide="info"></i>
+                    Info Board
+                </a>
+                <a href="directory.html" class="menu-item">
+                    <i data-lucide="users"></i>
+                    Directory
+                </a>
+                <a href="login.html" class="menu-item">
+                    <i data-lucide="log-out"></i>
+                    Logout
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/announcements.js"></script>
+    <script src="js/quick-actions.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+

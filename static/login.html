@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Jabu</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .login-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('https://plus.unsplash.com/premium_photo-1671358689953-ee06a6671fce?q=80&w=3264&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .login-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .login-card {
+            background-color: var(--background);
+            padding: 2rem;
+            border-radius: var(--radius);
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .login-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.875rem;
+            font-weight: bold;
+        }
+
+        .login-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-overlay"></div>
+        <div class="login-card">
+            <h1 class="login-title">Login to Jabu</h1>
+            <div class="login-buttons">
+                <button onclick="login('resident')" class="button button-primary">
+                    Resident Login
+                </button>
+                <button onclick="login('admin')" class="button button-outline">
+                    Admin Login
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function login(type) {
+            if (type === 'admin') {
+                window.location.href = 'admin.html';
+            } else {
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+</body>
+</html>
+

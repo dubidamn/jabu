@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedules - Jabu</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .schedules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .schedule-card {
+            background-color: var(--background);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+        }
+
+        .schedule-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .schedule-table th {
+            font-weight: 500;
+            color: var(--muted-foreground);
+        }
+
+        .routes {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .route-item {
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <nav class="container">
+                <a href="/" class="logo">Jabu</a>
+                <div class="nav-actions">
+                    <button id="themeToggle" class="icon-button">
+                        <i data-lucide="moon"></i>
+                    </button>
+                    <a href="tel:+1234567890" class="icon-button">
+                        <i data-lucide="phone"></i>
+                    </a>
+                    <a href="directory.html" class="icon-button">
+                        <i data-lucide="users"></i>
+                    </a>
+                    <button id="menuToggle" class="icon-button">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="container py-8">
+            <h1 class="text-3xl font-bold">Schedules</h1>
+            
+            <div class="schedules-grid">
+                <div class="schedule-card">
+                    <div class="schedule-header">
+                        <h2 class="text-2xl font-semibold">Garbage Collection</h2>
+                        <button class="icon-button" onclick="shareSchedule('garbage')">
+                            <i data-lucide="share-2"></i>
+                        </button>
+                    </div>
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="garbageSchedule">
+                            <!-- Garbage collection schedule will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="schedule-card">
+                    <div class="schedule-header">
+                        <h2 class="text-2xl font-semibold">Shuttle Bus</h2>
+                        <div class="flex items-center gap-4">
+                            <a href="bus-tracking.html" class="icon-button">
+                                <i data-lucide="search"></i>
+                            </a>
+                            <button class="icon-button" onclick="shareSchedule('bus')">
+                                <i data-lucide="share-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Departures</th>
+                            </tr>
+                        </thead>
+                        <tbody id="busSchedule">
+                            <!-- Bus schedule will be inserted here -->
+                        </tbody>
+                    </table>
+                    <div class="routes">
+                        <h3 class="text-lg font-semibold mb-2">Routes</h3>
+                        <div id="busRoutes">
+                            <!-- Bus routes will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <img src="https://i.imgur.com/G382iaU.png" alt="Jabu Logo" width="50" height="50">
+                    <nav>
+                        <ul>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Terms</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <p class="copyright">Jabu™ is an experimental SaaS product by PurarupaStudio</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Menu Modal -->
+    <div class="menu-modal" id="menuModal">
+        <div class="menu-content">
+            <div class="menu-header">
+                <h3>Menu</h3>
+                <button class="close-button">×</button>
+            </div>
+            <nav class="menu-nav">
+                <a href="tickets.html" class="menu-item">
+                    <i data-lucide="ticket"></i>
+                    Tickets
+                </a>
+                <a href="billing.html" class="menu-item">
+                    <i data-lucide="credit-card"></i>
+                    Billing
+                </a>
+                <a href="schedules.html" class="menu-item">
+                    <i data-lucide="calendar"></i>
+                    Schedules
+                </a>
+                <a href="security.html" class="menu-item">
+                    <i data-lucide="shield"></i>
+                    Security
+                </a>
+                <a href="admin.html" class="menu-item">
+                    <i data-lucide="user"></i>
+                    Admin
+                </a>
+                <a href="info.html" class="menu-item">
+                    <i data-lucide="info"></i>
+                    Info Board
+                </a>
+                <a href="directory.html" class="menu-item">
+                    <i data-lucide="users"></i>
+                    Directory
+                </a>
+                <a href="login.html" class="menu-item">
+                    <i data-lucide="log-out"></i>
+                    Logout
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/menu.js"></script>
+    <script>
+        // Schedule data
+        const schedules = {
+            garbage: [
+                { day: "Monday", time: "08:00" },
+                { day: "Wednesday", time: "08:00" },
+                { day: "Friday", time: "08:00" }
+            ],
+            bus: [
+                { day: "Weekdays", departures: ["07:00", "09:00", "12:00", "15:00", "17:00", "19:00"] },
+                { day: "Weekends", departures: ["08:00", "10:00", "14:00", "16:00", "18:00"] }
+            ],
+            routes: [
+                { name: "Route A", stops: "Main Gate - Block A - Block B - Shopping Center" },
+                { name: "Route B", stops: "Main Gate - Block C - Block D - Park" }
+            ]
+        };
+
+        // Populate garbage collection schedule
+        const garbageSchedule = document.getElementById('garbageSchedule');
+        garbageSchedule.innerHTML = schedules.garbage.map(schedule => `
+            <tr>
+                <td>${schedule.day}</td>
+                <td>${schedule.time}</td>
+            </tr>
+        `).join('');
+
+        // Populate bus schedule
+        const busSchedule = document.getElementById('busSchedule');
+        busSchedule.innerHTML = schedules.bus.map(schedule => `
+            <tr>
+                <td>${schedule.day}</td>
+                <td>${schedule.departures.join(', ')}</td>
+            </tr>
+        `).join('');
+
+        // Populate bus routes
+        const busRoutes = document.getElementById('busRoutes');
+        busRoutes.innerHTML = schedules.routes.map(route => `
+            <p class="route-item">
+                <span class="font-medium">${route.name}:</span> ${route.stops}
+            </p>
+        `).join('');
+
+        // Share functionality
+        function shareSchedule(type) {
+            if (navigator.share) {
+                let text = '';
+                if (type === 'garbage') {
+                    text = 'Garbage Collection Schedule:\n' + 
+                           schedules.garbage.map(s => `${s.day}: ${s.time}`).join('\n');
+                } else if (type === 'bus') {
+                    text = 'Shuttle Bus Schedule:\n' + 
+                           schedules.bus.map(s => `${s.day}: ${s.departures.join(', ')}`).join('\n');
+                }
+                
+                navigator.share({
+                    title: 'Jabu Schedule',
+                    text: text,
+                    url: window.location.href
+                }).catch(console.error);
+            } else {
+                alert('Sharing is not supported on this browser');
+            }
+        }
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+

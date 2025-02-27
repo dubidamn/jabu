@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "name": "Budi Santoso",
+    "email": "budi.santoso@email.com",
+    "phone": "081234567890",
+    "unit": "A-101"
+  },
+  {
+    "id": 2,
+    "name": "Siti Rahayu",
+    "email": "siti.rahayu@email.com",
+    "phone": "081234567891",
+    "unit": "B-203"
+  },
+  {
+    "id": 3,
+    "name": "Ahmad Wijaya",
+    "email": "ahmad.wijaya@email.com",
+    "phone": "081234567892",
+    "unit": "C-305"
+  }
+]
+

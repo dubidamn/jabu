@@ -1,0 +1,39 @@
+[
+  {
+    "title": "Community Meeting",
+    "date": "2023-07-20",
+    "time": "19:00",
+    "location": "Community Hall"
+  },
+  {
+    "title": "SAMSAT Mobile Visit",
+    "date": "2023-07-25",
+    "time": "10:00-15:00",
+    "location": "Parking Lot"
+  },
+  {
+    "title": "BCA eBranch Service",
+    "date": "2023-07-27",
+    "time": "09:00-16:00",
+    "location": "Lobby Area"
+  },
+  {
+    "title": "Neighborhood Cleanup Day",
+    "date": "2023-08-05",
+    "time": "09:00",
+    "location": "Meet at Main Entrance"
+  },
+  {
+    "title": "Health Screening Camp",
+    "date": "2023-08-10",
+    "time": "08:00-14:00",
+    "location": "Community Center"
+  },
+  {
+    "title": "Movie Night",
+    "date": "2023-08-15",
+    "time": "20:00",
+    "location": "Outdoor Garden"
+  }
+]
+
